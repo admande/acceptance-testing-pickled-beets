@@ -21,6 +21,7 @@ feature "User checks a recipe's deliciousness", %(
   scenario "user submits a recipe name containing 'pickled beets'" do
     visit '/'
     expect(page).to have_content("The High-Tech Recipe Evaluation Machine")
+    expect(page).to have_field("recipe_name")
     fill_in('recipe_name', :with => 'Magic pickled beets')
     click_button 'Submit'
     expect(page).to have_content('"Magic pickled beets" is a delicious recipe!')
